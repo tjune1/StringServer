@@ -67,4 +67,8 @@ static void reverseInPlace(int[] arr) {
   }
 }
 ```
-The `static void reverseInPlace(int[] arr)` method needs a temp to get the first index and save it, then update the first index with the last element,then update the last index with the temp (first index). The length in the for loop also needed to be divided by 2 so that it does not redo the entire thing because without it it would flip it, then flip it back. 
+The `static void reverseInPlace(int[] arr)` method needs a temp to get the first index and save it, then update the first index with the last element, then update the last index with the temp (first index). The length in the for loop also needed to be divided by 2 so that it does not redo the entire thing because without the division it would flip all the elements, and then flip them back. 
+
+## 3. Something I learned new
+* From lab2, I knew how to build and run a server both on my computer as well as remotely. I learned that each person can only visit one localhost at one time. For example, if someone else in the lab is accessing `localhost:4000/` then I cannot access the same webpage. I need to choose another website like `localhost:3888` to access.
+* From lab3, I learned how to debug in a shortcut from my lab partner. Try out some unique cases like empty list/array and zero integer can help debugging more quickly than staring at the code and trying to find the bug from staring.
