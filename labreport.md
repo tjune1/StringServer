@@ -6,3 +6,8 @@ Code of StringServer.java:
 
 First Screenshot:
 
+![Image](First Screenshot.png)
+
+Second Screenshot:
+
+![Image](Second Screenshot.png)
