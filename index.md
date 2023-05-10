@@ -36,14 +36,14 @@ class StringServer {
 ```
 
 First Screenshot:
-1. First, the main method `public static void main(String[] args) throws IOException` in the StringServer class is called, which we pass the port number and the server starts. Then, the handleRequest method `public String handleRequest(URI url)` in the Handler class is called, it takes in the url `http://localhost:3666/add-message?s=Hello!` and diplays the string "Hello!" on the webpage. 
+1. First, the main method `public static void main(String[] args) throws IOException` in the StringServer class is called, which we pass the port number and the server starts. Then, the handleRequest method `public String handleRequest(URI url)` in the Handler class is called, it takes in the URL `http://localhost:3666/add-message?s=Hello!`. Since the URL contains `/add-message` and `parameters[0]` is `s`, `parameters[1]` is the string after the `=` in the path, which is `Hello!` in this case. `Hello!` is added to `str`, so the string "Hello!" is displayed on the webpage. 
 2. For the main method, the argument we took in is `3666` for port number. For the handleRequest method, the argument we took in is the url `http://localhost:3666/add-message?s=Hello!`.
 3. The `str` is changed from empty string to `Hello!`.
 
 ![Image](FirstScreenshot.png)
 
 Second Screenshot:
-1. First, the main method `public static void main(String[] args) throws IOException` in the StringServer class is called, which we pass the port number and the server starts. Then, the handleRequest method `public String handleRequest(URI url)` in the Handler class is called, it takes in the url `http://localhost:3666/add-message?s=AAAA` and diplays the string "Hello! + \n + AAAA" on the webpage. 
+1. First, the main method `public static void main(String[] args) throws IOException` in the StringServer class is called, which we pass the port number and the server starts. Then, the handleRequest method `public String handleRequest(URI url)` in the Handler class is called, it takes in the url `http://localhost:3666/add-message?s=AAAA`. Since the URL contains `/add-message` and `parameters[0]` is `s`, `parameters[1]` is the string after the `=` in the path, which is `AAAA` in this case. `AAAA` is added to `str`, so the string "Hello! + \n + AAAA" is displayed on the webpage. 
 2. For the main method, the argument we took in is `3666` for port number. For the handleRequest method, the argument we took in is the url `http://localhost:3666/add-message?s=AAAA`.
 3. The `str` is changed to `Hello! + \n + AAAA`.
 
