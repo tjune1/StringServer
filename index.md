@@ -1,20 +1,51 @@
 # Second Lab Report - Jun T.
 ## 1. WebServer - StringServer
 Code of StringServer.java:
+```
+import java.io.IOException;
 
-![Image](Code.png)
+class Handler implements URLHandler {
+    // The one bit of state on the server: a number that will be manipulated by
+    // various requests.
+    String str = "";
+
+    public String handleRequest(URI url) {
+        System.out.println("Path: " + url.getPath());
+        if (url.getPath().contains("/add-message")) {
+            String[] parameters = url.getQuery().split("=");
+                if (parameters[0].equals("s")) {
+                    str = str + parameters[1] + "\n";
+                }
+        }
+        return str;
+    }
+}
+
+class StringServer {
+    public static void main(String[] args) throws IOException {
+        if(args.length == 0){
+            System.out.println("Missing port number! Try any number between 1024 to 49151");
+            return;
+        }
+
+        int port = Integer.parseInt(args[0]);
+
+        Server.start(port, new Handler());
+    }
+}
+```
 
 First Screenshot:
-1. Methods `public String handleRequest` and `public static void main` are called.
-2. For the method `public String handleRequest` the argument is `URI url`, the values are `String str` and `String[] parameters`. For the method `public static void main` the argument is `String[] args`, the value is `int port`.
-3. For `class Handler`, `String str` changes to `Hello! + "\n"`. For `class StringServer`, `int port` changes to `3666`. 
+1. First, the main method `public static void main(String[] args) throws IOException` in the StringServer class is called, which we pass the port number and the server starts. Then, the handleRequest method `public String handleRequest(URI url)` in the Handler class is called, it takes in the url `http://localhost:3666/add-message?s=Hello!` and diplays the string "Hello!" on the webpage. 
+2. For the main method, the argument we took in is `3666` for port number. For the handleRequest method, the argument we took in is the url `http://localhost:3666/add-message?s=Hello!`.
+3. The `str` is changed from empty string to `Hello!`.
 
 ![Image](FirstScreenshot.png)
 
 Second Screenshot:
-1. Methods `public String handleRequest` and `public static void main` are called.
-2. For the method `public String handleRequest` the argument is `URI url`, the values are `String str` and `String[] parameters`. For the method `public static void main` the argument is `String[] args`, the value is `int port`.
-3. For `class Handler`, `String str` changes to `Hello! + "\n" + 123 + "\n" + AAAA + "\n"`. For `class StringServer`, `int port` changes to `3666`. 
+1. First, the main method `public static void main(String[] args) throws IOException` in the StringServer class is called, which we pass the port number and the server starts. Then, the handleRequest method `public String handleRequest(URI url)` in the Handler class is called, it takes in the url `http://localhost:3666/add-message?s=AAAA` and diplays the string "Hello! + \n + AAAA" on the webpage. 
+2. For the main method, the argument we took in is `3666` for port number. For the handleRequest method, the argument we took in is the url `http://localhost:3666/add-message?s=AAAA`.
+3. The `str` is changed to `Hello! + \n + AAAA`.
 
 ![Image](SecondScreenshot.png)
 
