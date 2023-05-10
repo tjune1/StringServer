@@ -36,16 +36,16 @@ class StringServer {
 ```
 
 First Screenshot:
-1. Methods `public String handleRequest` and `public static void main` are called.
-2. For the method `public String handleRequest` the argument is `URI url`, the values are `String str` and `String[] parameters`. For the method `public static void main` the argument is `String[] args`, the value is `int port`.
-3. For `class Handler`, `String str` changes to `Hello! + "\n"`. For `class StringServer`, `int port` changes to `3666`. 
+1. First, the main method `public static void main(String[] args) throws IOException` in the StringServer class is called, which we pass the port number and the server starts. Then, the handleRequest method `public String handleRequest(URI url)` in the Handler class is called, it takes in the url `http://localhost:3666/add-message?s=Hello!` and diplays the string "Hello!" on the webpage. 
+2. For the main method, the argument we took in is `3666` for port number. For the handleRequest method, the argument we took in is the url `http://localhost:3666/add-message?s=Hello!`.
+3. The `str` is changed from empty string to `Hello!`.
 
 ![Image](FirstScreenshot.png)
 
 Second Screenshot:
-1. Methods `public String handleRequest` and `public static void main` are called.
-2. For the method `public String handleRequest` the argument is `URI url`, the values are `String str` and `String[] parameters`. For the method `public static void main` the argument is `String[] args`, the value is `int port`.
-3. For `class Handler`, `String str` changes to `Hello! + "\n" + 123 + "\n" + AAAA + "\n"`. For `class StringServer`, `int port` changes to `3666`. 
+1. First, the main method `public static void main(String[] args) throws IOException` in the StringServer class is called, which we pass the port number and the server starts. Then, the handleRequest method `public String handleRequest(URI url)` in the Handler class is called, it takes in the url `http://localhost:3666/add-message?s=AAAA` and diplays the string "Hello! + \n + AAAA" on the webpage. 
+2. For the main method, the argument we took in is `3666` for port number. For the handleRequest method, the argument we took in is the url `http://localhost:3666/add-message?s=AAAA`.
+3. The `str` is changed to `Hello! + \n + AAAA`.
 
 ![Image](SecondScreenshot.png)
 
